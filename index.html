@@ -1,0 +1,21 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="myApp" ng-controller="todoController">
+
+<h2>Todo List</h2>
+
+<form ng-submit="addTask()">
+    <input type="text" ng-model="todoVal" size="60" placeholder="Enter New Task">
+    <input type="submit" value="Add New Task" ng-disabled="!todoVal">
+</form>
+
+<br>
+
+<div ng-repeat="x in todoTaskList">
+    <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoTaskText"></span>
+</div>
+<p><button ng-disabled="!todoTaskList.length" ng-click="removeTask()">Remove</button> (Please select checkbox to remove tasks)</p>
+
+<script src="app.js"></script>
+</body>
+</html>
